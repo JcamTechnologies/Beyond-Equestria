@@ -103,7 +103,7 @@ function gameUpdate()
 		DirX = -1.0
 	end
 	if MainScene:getKey(KEY_LSHIFT) == 1 then
-		sprint = 10
+		sprint = 50
 	end
 	if MainScene:getKey(KEY_KEY_Q) == 1 then
 		local d = MainScene:getMetaData("CameraDistanceFromPlayer")
@@ -264,7 +264,9 @@ function gameUpdate()
 	curTime = curTime + MainScene:deltaTime()
 	if curTime > 500 then
 		tx, ty, tz = MainScene:getObject(playerCollider):getPosition()
-		if GENTERRAIN == 0 then updateChunks(tx/terrainScale, tz/terrainScale, chunksize, terrainScale) end
+		if GENTERRAIN == 0 then 
+			updateChunks(tx/terrainScale, tz/terrainScale, chunksize, terrainScale)
+		end
 		curTime = 0
 	end
 	local vx, vy, vz = MainScene:getObject(playerCollider):getCollider():getVelocity()
