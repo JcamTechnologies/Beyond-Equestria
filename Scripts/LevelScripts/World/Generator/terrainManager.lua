@@ -86,12 +86,15 @@ function createChunk(chunkx, chunky, chunksize, terrainScale)
 	MainScene:getTerrain(terrain):rebuild()
 	addChunkCollider(MainScene:getTerrain(terrain))
 	MainScene:getObject(terrain):setMaterialFlag("normalize_normals", 1)
-	MainScene:getObject(terrain):setMaterialType("parallax_solid", 0)
-	MainScene:getObject(terrain):useShader(MainScene,"Shaders/terrain.xml")
-	MainScene:getObject(terrain):setMaterialData(0, "texture", MainScene, 0, "Assets/Levels/world/textures/terrainMap.jpg")
-	MainScene:getObject(terrain):setMaterialData(0, "texture", MainScene, 1, "Assets/Levels/world/textures/grass.jpg")
-	MainScene:getObject(terrain):setMaterialData(0, "texture", MainScene, 2, "Assets/Levels/world/textures/rock.jpg")
+	
+	
+
 	MainScene:getObject(terrain):setMaterialFlag("lighting", 0)
+	MainScene:getObject(terrain):useShader(MainScene,"Shaders/terrain.xml")
+	--MainScene:getObject(terrain):setMaterial("solid")
+	MainScene:getObject(terrain):setMaterialTexture(MainScene, 0, "Assets/Levels/world/textures/terrainMap.jpg")
+	MainScene:getObject(terrain):setMaterialTexture(MainScene, 1, "Assets/Levels/world/textures/grass.jpg")
+	MainScene:getObject(terrain):setMaterialTexture(MainScene, 2, "Assets/Levels/world/textures/rock.jpg")
 	return terrain
 end
 

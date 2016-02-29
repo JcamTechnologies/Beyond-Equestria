@@ -1,5 +1,6 @@
 varying float diffuse_value;
 varying vec3 normal;
+varying vec3 fNormal;
 void main() {            
 		gl_TexCoord[0] = gl_MultiTexCoord0;
     // Calculate the normal value for this vertex, in world coordinates (multiply by gl_NormalMatrix)
@@ -14,5 +15,6 @@ void main() {
     gl_FrontColor = gl_Color;
     // Set the position of the current vertex 
     gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+		vec3 fNormal = normalize(gl_Position);
 }
 

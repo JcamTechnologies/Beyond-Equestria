@@ -3,4 +3,7 @@
 	<fsConstant name="ambientR" value="0.2" />
 	<fsConstant name="ambientG" value="0.2" />
 	<fsConstant name="ambientB" value="0.2" />
+	<fsConstant name="aTexture0" value="0.0" />
+	<fsConstant name="aTexture1" value="1.0" />
+	<fsConstant name="aTexture2" value="2.0" />
 </Shader>

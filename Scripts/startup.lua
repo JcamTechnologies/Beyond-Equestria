@@ -8,7 +8,7 @@ System_run("scripts/LevelScripts/Menu/connectionState.lua", MainScene)
 System_run("scripts/LevelScripts/World/game.lua", MainScene)
 System_run("scripts/GUI/PonyEditor/util.lua", MainScene)
 System_run("scripts/GUI/pause.lua", MainScene)
-MainScene:setDebug(2)
+MainScene:setDebug(0)
 MainScene:setPhysicsDebug(0)
 
 chunksize = 64

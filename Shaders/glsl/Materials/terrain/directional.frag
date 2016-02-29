@@ -1,24 +1,28 @@
-#version 120
-uniform sampler2D mTexture0;
-uniform sampler2D mTexture1;
-uniform sampler2D mTexture2;
+
+uniform sampler2D aTexture0;
+uniform sampler2D aTexture1;
+uniform sampler2D aTexture2;
 uniform float ambientR, ambientG, ambientB;
 varying float diffuse_value;
 varying vec3 normal;
+varying vec3 fNormal;
 
 vec4 interpolate(vec4 c1, vec4 c2, float inter)
 {
 	return ( 1.0 - inter )* c1 + inter * c2;
 }
 void main() {
+		vec2 texcoord = vec2(gl_TexCoord[0])*16.0;
     // Set the output color of our current pixel
 		vec4 c = gl_Color;
-		vec4 color = texture2D(mTexture0, vec2(c.r, c.g));
-		//vec4 c1 = interpolate(texture2D(mTexture1, gl_TexCoord[0].st), texture2D(mTexture2, gl_TexCoord[0].st), normal.z);
-		//float g = (c1.r+c1.g+c1.b)/3;
-		//c1 = vec4(g, g, g, 1.0);
-		//color = c1;
-    gl_FragColor = diffuse_value * color + (color*vec4(ambientR, ambientG, ambientB, 1.0));
+		vec4 color = texture2D(aTexture0, vec2(c.r, c.g));
+		float angle = normal.xyz;
+		vec4 grass = texture2D(aTexture1, texcoord);
+		vec4 rock = texture2D(aTexture2, texcoord/8);
+		float gray = (grass.r+grass.g+grass.b)/3.0;
+		grass = vec4(gray, gray, gray, 1.0);
+		vec4 final = grass*color.rgba*angle+rock*(1.0-angle);
+    gl_FragColor = diffuse_value * final + (final*vec4(ambientR, ambientG, ambientB, 1.0));
 		
 }
 
