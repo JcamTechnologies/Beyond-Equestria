@@ -95,6 +95,7 @@ function createChunk(chunkx, chunky, chunksize, terrainScale)
 	MainScene:getObject(terrain):setMaterialTexture(MainScene, 0, "Assets/Levels/world/textures/terrainMap.jpg")
 	MainScene:getObject(terrain):setMaterialTexture(MainScene, 1, "Assets/Levels/world/textures/grass.jpg")
 	MainScene:getObject(terrain):setMaterialTexture(MainScene, 2, "Assets/Levels/world/textures/rock.jpg")
+	MainScene:getObject(terrain):setMaterialTexture(MainScene, 3, "Assets/Levels/world/textures/sand.jpg")
 	return terrain
 end
 
@@ -114,7 +115,7 @@ function updateChunk(terrain)
 	--MainScene:getObject(terrain):setMaterialTexture(MainScene, 0, "Assets/Levels/World/textures/grass.jpg")
 end
 function addChunkCollider(terrain)
-	terrain:addCollider(MainScene, "MESH_TRIMESH", 0)
+	terrain:addCollider(MainScene, "MESH_GIMPACT", 0)
 	MainScene:getObject(terrain:getID()):getCollider():setFriction(100.0)
 end
 function generateTrees(terrain, chunkx, chunky, chunksize, terrainScale)

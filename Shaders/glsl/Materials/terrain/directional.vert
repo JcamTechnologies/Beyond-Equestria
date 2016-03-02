@@ -3,6 +3,11 @@ varying vec3 normal;
 varying vec3 fNormal;
 void main() {            
 		gl_TexCoord[0] = gl_MultiTexCoord0;
+		
+		vec3 P = gl_Vertex.xyz; 
+		vec3 N = gl_Normal.xyz;
+		
+		normal = gl_Normal;
     // Calculate the normal value for this vertex, in world coordinates (multiply by gl_NormalMatrix)
     vec3 vertex_normal = normalize(gl_NormalMatrix * gl_Normal);
     // Calculate the light position for this vertex

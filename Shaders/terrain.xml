@@ -6,4 +6,5 @@
 	<fsConstant name="aTexture0" value="0.0" />
 	<fsConstant name="aTexture1" value="1.0" />
 	<fsConstant name="aTexture2" value="2.0" />
+	<fsConstant name="aTexture3" value="3.0" />
 </Shader>
