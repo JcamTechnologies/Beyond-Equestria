@@ -1,4 +1,3 @@
-
 uniform sampler2D aTexture0;
 uniform sampler2D aTexture1;
 uniform sampler2D aTexture2;

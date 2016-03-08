@@ -8,7 +8,7 @@ System_run("scripts/LevelScripts/Menu/connectionState.lua", MainScene)
 System_run("scripts/LevelScripts/World/game.lua", MainScene)
 System_run("scripts/GUI/PonyEditor/util.lua", MainScene)
 System_run("scripts/GUI/pause.lua", MainScene)
-MainScene:setDebug(0)
+MainScene:setDebug(2)
 MainScene:setPhysicsDebug(0)
 
 chunksize = 64
@@ -23,9 +23,9 @@ postFX = 0
 mInit = 0
 function init()
 	MainScene:SLog("Launching Beyond Equestria "..version)
-	MainScene:setMetaString("SERVERIP", "192.168.1.3")
+	MainScene:setMetaString("SERVERIP", "71.175.69.32")
 	MainScene:setMetaData("SERVERPORT", 7777)
-	MainScene:setMetaString("SERVERCOMBINEDIP", "192.168.1.3|7777")
+	MainScene:setMetaString("SERVERCOMBINEDIP", "71.175.69.32|7777")
 	MainScene:addCamera(1)
 	--menuInit()
 	local width = MainScene:getConfigValue("width")
@@ -43,7 +43,7 @@ function init()
 	MainScene:setMetaData("NETRUNNING", 0)
 	MainScene:setMetaData("NETWORKERROR", 0)
 	MainScene:setMetaData("CONNECTED_TO_SERVER", 0)
-	MainScene:setMetaData("WORLDDEBUG", 0)
+	MainScene:setMetaData("WORLDDEBUG", 1)
 end
 
 function update()
@@ -94,6 +94,6 @@ function render()
 		if MainScene:getConfigValue("bloom") == 1 then
 			MainScene:RenderEffect(5)
 		end
-		--MainScene:RenderEffect(29)
+		
 	end
 end

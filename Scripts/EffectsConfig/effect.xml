@@ -287,7 +287,7 @@ EVST_VS_5_0 = 6,    EPST_PS_2_b = 6,    ETC_MIRROR_CLAMP_TO_EDGE = 6,
     
     <!-- accumulate blur and original buffer-->
     <ShaderPostProcess name="Accumulate (Final Pass)" vsFile="vertex.fx" vsType="0" psFile="accumulate.fx" psType="4" >
-      <PixelShaderConstant name="EffectStrength" value="1.0" />
+      <PixelShaderConstant name="EffectStrength" value="0.5" />
       <Texture index="0" textureClamp="1" />
       <Texture index="1" path="rtt0" textureClamp="1" />
       <RenderSource path="auxIn" />

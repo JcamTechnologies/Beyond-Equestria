@@ -103,7 +103,7 @@ function gameUpdate()
 		DirX = -1.0
 	end
 	if MainScene:getKey(KEY_LSHIFT) == 1 then
-		sprint = 50
+		sprint = 10
 	end
 	if MainScene:getKey(KEY_KEY_Q) == 1 then
 		local d = MainScene:getMetaData("CameraDistanceFromPlayer")
