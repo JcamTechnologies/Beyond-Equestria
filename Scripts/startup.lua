@@ -23,9 +23,9 @@ postFX = 0
 mInit = 0
 function init()
 	MainScene:SLog("Launching Beyond Equestria "..version)
-	MainScene:setMetaString("SERVERIP", "71.175.69.32")
+	MainScene:setMetaString("SERVERIP", "173.49.231.135")
 	MainScene:setMetaData("SERVERPORT", 7777)
-	MainScene:setMetaString("SERVERCOMBINEDIP", "71.175.69.32|7777")
+	MainScene:setMetaString("SERVERCOMBINEDIP", "173.49.231.135|7777")
 	MainScene:addCamera(1)
 	--menuInit()
 	local width = MainScene:getConfigValue("width")
@@ -43,7 +43,7 @@ function init()
 	MainScene:setMetaData("NETRUNNING", 0)
 	MainScene:setMetaData("NETWORKERROR", 0)
 	MainScene:setMetaData("CONNECTED_TO_SERVER", 0)
-	MainScene:setMetaData("WORLDDEBUG", 1)
+	MainScene:setMetaData("WORLDDEBUG", 0)
 end
 
 function update()

@@ -1,4 +1,5 @@
 System_run("Scripts/GUI/PonyEditor/tables.lua", MainScene)
+bil=0
 function menuInit()
 	MainScene:clearGUI()
 	MainScene:setMetaData("MENUCAMERATRACK", 1)
@@ -60,6 +61,11 @@ function menuInit()
 	s = MainScene:addSound("Assets/Levels/menu/music/atop the trees.wav", cx, cy, cz, 0)
 	MainScene:getSound(s):setVolume(MainScene:getConfigValue("music_volume"))
 	MainScene:setMetaData("MENUMUSICID", s)
+	
+	bil = MainScene:addBillboard("Assets/Levels/menu/textures/flame/1.png", 5.9, 3.8, 3.4)
+	MainScene:setMetaData("CANDLEID", bil)
+	MainScene:getBillboard(bil):setSize(2, 5)
+	
 end
 local overlay = 0
 
@@ -74,7 +80,8 @@ local CTargetLZ = {0, 0, 5, 3}
 local rotModX = math.random()/1000
 local rotModZ = math.random()/1000
 local curTime = 0
-local updateTime = 0
+local updateTime = 0.1
+curFrame = 1
 function menuUpdate()
 	local cTrack = MainScene:getMetaData("MENUCAMERATRACK")
 	local width = MainScene:getConfigValue("width")
@@ -105,12 +112,11 @@ function menuUpdate()
 	end
 	if curTime >= updateTime then
 		curTime = 0
-		updateTime = math.random()/2
-		rotModX = math.random()/750
-		rotModZ = math.random()/800
-		MainScene:getParticle(6):setDirection(rotModX, 0.004, rotModZ)
-		MainScene:getParticle(7):setDirection(rotModX, 0.001, rotModZ)
-		MainScene:getParticle(8):setDirection(rotModX, 0.002, rotModZ)
+		curFrame = curFrame+1
+		if curFrame > 10 then
+			curFrame = 1
+		end
+		MainScene:getBillboard(MainScene:getMetaData("CANDLEID")):setTexture(MainScene, "Assets/Levels/menu/textures/flame/"..curFrame..".png")
 	else
 		curTime = curTime + (MainScene:deltaTime()/1000)
 	end

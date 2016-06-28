@@ -172,10 +172,10 @@ function onReceive(pack, ip)
 end
 
 function onConnectFailed(ip)
-	--MainScene:setMetaData("NETWORKERROR", 1)
-	MainScene:setMetaData("GAMESTATE", 1)
+	MainScene:setMetaData("NETWORKERROR", 1)
+	MainScene:setMetaData("GAMESTATE", 0)
 	MainScene:setMetaData("GAMESTATECHANGED", 1)
-	--MainScene:setMetaData("MENUCAMERATRACK", 1)
+	MainScene:setMetaData("MENUCAMERATRACK", 1)
 end
 
 function onServerFull(ip)

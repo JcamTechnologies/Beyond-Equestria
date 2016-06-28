@@ -3,7 +3,7 @@ function onSelect(selection)
 	for i=0, MainScene:Objects() do
 		if MainScene:getObject(i) then
 			if MainScene:getObject(i):getMetaData("GUIKEY") == selection and MainScene:getMetaData("LAST_SELECTION_GUI") == -1 then
-				if MainScene:getObject(i):getType() == "MESH" or MainScene:getObject(i):getType() == "ANIMATEDMESH" or MainScene:getObject(i):getType() == "EMPTYOBJECT" then
+				if MainScene:getObject(i):getType() == "MESH" or MainScene:getObject(i):getType() == "ANIMATEDMESH" or MainScene:getObject(i):getType() == "EMPTYOBJECT" or MainScene:getObject(i):getType() == "BILLBOARD" then
 					MainScene:setMetaData("LAST_SELECTION_GUI", i)
 					createMeshEditor(i)
 				end

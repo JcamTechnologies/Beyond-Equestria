@@ -1,5 +1,5 @@
 GENTERRAIN = 1
-local CameraStatePrev = 2
+local CameraStatePrev = 1
 function gameInit()
 	GENTERRAIN = MainScene:getMetaData("WORLDDEBUG")
 	MainScene:addCamera(CameraStatePrev)
@@ -51,6 +51,10 @@ function gameInit()
 	
 	MainScene:setMetaData("CameraDistanceFromCollider", 4)
 	MainScene:setMetaData("CameraDistanceFromPlayer", 10)
+	
+	sunBil = MainScene:addBillboard("Assets/Levels/world/textures/sun.png", 0, 0, -200);
+	MainScene:getObject(sunBil):attachTo(MainScene:getObject(0))
+	
 end
 anim = 0
 lastAnim = 0
@@ -373,6 +377,8 @@ function gameUpdate()
 			anim = IDLE
 		end
 	end
+	local px, py, pz = MainScene:getObject(playerCollider):getPosition()
+	MainScene:getObject(0):setPosition(px, py, pz)
 end
 
 function gameRender()
